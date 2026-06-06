@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Sản Phẩm - PhoneParts Studio</title>
+    <title>Quản Lý Sản Phẩm - PhoneParts Studio</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -29,25 +29,69 @@
     <nav class="main-nav">
         <ul class="nav-links">
             <li><a href="../index.html">Trang Chủ</a></li>
-            <li><a href="san-pham.html" class="active">Sản Phẩm</a></li>
+            <li><a href="san-pham.html">Sản Phẩm</a></li>
             <li><a href="gioi-thieu.html">Về chúng tôi</a></li>
             <li><a href="lien-he.html">Liên Hệ</a></li>
             <li><a href="#" onclick="kiemTraAdmin()">Quản Lý (Admin)</a></li>
         </ul>
     </nav>
 
-    <main class="container">
+    <main class="container admin-layout">
+        <h2 style="color: #1e293b; border-bottom: 2px solid #ddd; padding-bottom: 10px;">Bảng Quản Trị Sản Phẩm</h2>
+        
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hình Ảnh</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá Bán</th>
+                        <th>Trạng Thái</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTableBody">
+                    </tbody>
+            </table>
+        </div>
 
-       <div id="error-message" style="display: none; text-align: center; padding: 50px;">
-           <h2 style="color: #dc2626;">Không tìm thấy sản phẩm!</h2>
-           <p>Sản phẩm này không tồn tại hoặc đã bị gỡ.</p>
-           <br>
-           <a href="san-pham.html" class="btn">Quay lại danh sách</a>
-       </div>
+        <h2 style="color: #1e293b; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 40px;">Thêm / Sửa Sản Phẩm</h2>
+        <form id="adminForm">
+            <div class="contact-layout" style="grid-template-columns: 1fr 1fr;">
+                <div>
+                    <div class="form-group">
+                        <label for="adTen">Tên sản phẩm (*)</label>
+                        <input type="text" id="adTen" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adGia">Giá bán (VNĐ) (*)</label>
+                        <input type="number" id="adGia" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adThuongHieu">Thương hiệu</label>
+                        <input type="text" id="adThuongHieu" placeholder="VD: Apple, Samsung...">
+                    </div>
+                </div>
 
-
-        <div id="detail-content">
+                <div>
+                    <div class="form-group">
+                        <label for="adHinhAnh">Link ảnh đại diện (URL)</label>
+                        <input type="text" id="adHinhAnh" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label for="adMoTa">Mô tả ngắn</label>
+                        <textarea id="adMoTa" style="min-height: 105px;"></textarea>
+                    </div>
+                </div>
             </div>
+            
+            <div style="text-align: right; margin-top: 15px;">
+                <button type="button" id="btnCancelEdit" class="btn btn-danger" style="display: none; margin-right: 10px;">Hủy Sửa</button>
+                <button type="submit" id="btnSubmitAdmin" class="btn">Thêm sản phẩm mới</button>
+            </div>
+        </form>
+
     </main>
 
 <footer class="main-footer">
@@ -118,6 +162,8 @@
 
         </div>
     </div>
+</div>
+
 </div>
 </body>
 </html>
