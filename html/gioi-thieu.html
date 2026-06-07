@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới Thiệu - PhoneParts Studio</title>
+    <title>Giới Thiệu - PHỤ KIỆN DUY THÀNH</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -18,8 +18,9 @@
         </div>
 
         <div class="search-box">
-            <input type="text" placeholder="Bạn cần tìm linh kiện gì?">
-            <button class="btn-search">
+            <input type="text" placeholder="Bạn cần tìm linh kiện gì?(chức năng minh họa)">
+            <!-- THÊM dòng onclick vào nút bấm này -->
+            <button class="btn-search" onclick="alert('Hiện tại không tìm thấy sản phẩm phù hợp!')">
                 Tìm kiếm
             </button>
         </div>
@@ -36,38 +37,93 @@
         </ul>
     </nav>
 
-    <main class="container">
-        <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; line-height: 1.8; color: #334155;">
-            
-            <h1 style="color: #1e3a8a; font-size: 28px; text-align: center; margin-bottom: 10px; font-weight: 800;">🔴 PHỤ KIỆN DUY THÀNH – THẾ GIỚI LINH KIỆN ĐIỆN THOẠI CHÍNH HÃNG</h1>
-            <h3 style="color: #ef4444; text-align: center; margin-bottom: 30px;">⚡ BẢO HÀNH UY TÍN | GIÁ TẬN GỐC | GIAO HÀNG SIÊU TỐC</h3>
-            
-            <p style="font-size: 16px; margin-bottom: 20px;">
-                <strong>📱 BẠN ĐANG TÌM KIẾM CƠ SỞ CUNG CẤP LINH KIỆN ĐIỆN THOẠI UY TÍN?</strong><br>
-                Bạn là thợ sửa chữa cần nguồn hàng ổn định? Bạn là người dùng muốn tự thay thế linh kiện chất lượng cao với giá tiết kiệm? <strong>PHỤ KIỆN DUY THÀNH</strong> chính là giải pháp toàn diện dành cho bạn. Chúng tôi cung cấp đầy đủ linh kiện cho mọi dòng điện thoại trên thị trường.
-            </p>
-
-            <h2 style="color: #1e3a8a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin: 30px 0 15px; font-weight: 800;">🎯 DANH MỤC SẢN PHẨM NỔI BẬT</h2>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li style="margin-bottom: 8px;"><strong>Màn hình bộ:</strong> Zin chính hãng, hiển thị sắc nét, cảm ứng mượt mà.</li>
-                <li style="margin-bottom: 8px;"><strong>Pin dung lượng cao:</strong> Đạt chuẩn châu Âu, chống chai, an toàn tuyệt đối.</li>
-                <li style="margin-bottom: 8px;"><strong>Linh kiện bo mạch:</strong> Chân sạc, camera, loa, mic, cáp nguồn, IC nguồn...</li>
-            </ul>
-
-            <h2 style="color: #1e3a8a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin: 30px 0 15px; font-weight: 800;">💬 KHÁCH HÀNG NÓI VỀ CHÚNG TÔI</h2>
-            <div style="background: #f8fafc; padding: 20px; border-left: 5px solid #3b82f6; border-radius: 8px; margin-bottom: 15px; font-style: italic;">
-                "Nguồn hàng ở đây rất đều, màn hình iPhone về ráp khách chưa thấy ai quay lại bảo hành. Giá lại mềm nhất vùng."<br>
-                <strong style="font-style: normal; display: block; margin-top: 10px; color: #0f172a;">— Anh Minh (Chủ cửa hàng sửa chữa tại Hà Nội)</strong>
-            </div>
-
-            <div style="background: #eff6ff; padding: 20px; border-radius: 8px; color: #1e3a8a; font-weight: bold; border: 1px solid #bfdbfe; margin-top: 30px;">
-                📞 Hotline/Zalo đặt hàng: 0846.623.306<br>
-                📍 Địa chỉ cửa hàng: Số 153, Khóm 3, Phường Hòa Thuận, Tỉnh Vĩnh Long<br>
-                ✉️ Email hỗ trợ: thanhduy9693@gmail.com
-            </div>
-
+<main class="container editorial-about-layout">
+    
+    <!-- TẦNG 1: HERO HEADER - Khối tiêu đề lớn chuẩn tạp chí -->
+    <header class="editorial-hero">
+        <span class="editorial-tag">CÂU CHUYỆN THƯƠNG HIỆU</span>
+        <h1 class="editorial-main-title">PHỤ KIỆN DUY THÀNH</h1>
+        <p class="editorial-lead-text">Thế giới linh kiện & phụ kiện điện thoại chính hãng tại Vĩnh Long. Nơi chúng tôi định nghĩa lại khái niệm chất lượng và dịch vụ tận tâm dành cho thợ sửa chữa.</p>
+        
+        <div class="editorial-divider-gradient"></div>
+        
+        <div class="editorial-commitments">
+            <div class="commit-item"><strong>⚡ BẢO HÀNH UY TÍN</strong></div>
+            <div class="commit-item"><strong>💰 GIÁ TẬN GỐC</strong></div>
+            <div class="commit-item"><strong>🚀 GIAO HÀNG SIÊU TỐC</strong></div>
         </div>
-    </main>
+    </header>
+
+    <!-- TẦNG 2: ASYMMETRIC CONTENT - Bố cục nội dung 2 cột lệch bất đối xứng -->
+    <section class="editorial-grid-content">
+        <!-- Cột trái: Câu hỏi lớn dẫn dắt trải nghiệm khám phá -->
+        <div class="editorial-left-column">
+            <h2 class="editorial-question">Bạn đang tìm kiếm một cơ sở cung cấp linh kiện điện thoại thực sự uy tín?</h2>
+        </div>
+        
+        <!-- Cột phải: Đoạn văn giải pháp với Typography sắc nét -->
+        <div class="editorial-right-column">
+            <p class="editorial-paragraph">
+                Bạn là thợ sửa chữa cần một nguồn hàng ổn định để giữ chân khách hàng? Hay bạn là người dùng đam mê công nghệ muốn tự tay thay thế linh kiện chất lượng cao với chi phí tối ưu nhất? 
+            </p>
+            <p class="editorial-paragraph">
+                <strong>PHỤ KIỆN DUY THÀNH</strong> ra đời để trở thành giải pháp toàn diện dành cho bạn. Không chỉ bán sản phẩm, chúng tôi mang đến sự an tâm tuyệt đối thông qua quy trình sàng lọc và kiểm định kỹ thuật khắt khe cho từng chủng loại linh kiện trước khi trao tay khách hàng.
+            </p>
+        </div>
+    </section>
+
+    <!-- TẦNG 3: FEATURED CATEGORIES - Danh mục nổi bật dàn hàng ngang tối giản -->
+    <section class="editorial-categories-section">
+        <h3 class="editorial-section-title">Danh Mục Sản Phẩm Nổi Bật</h3>
+        
+        <div class="editorial-categories-flex">
+            <div class="category-text-block">
+                <span class="block-num">01</span>
+                <h4>Màn hình bộ</h4>
+                <p>Nguồn hàng Zin chính hãng và Zin ép kính. Hiển thị sắc nét, giải màu chuẩn, cảm ứng mượt mà không delay.</p>
+            </div>
+            <div class="category-text-block">
+                <span class="block-num">02</span>
+                <h4>Pin dung lượng cao</h4>
+                <p>Đạt các chứng nhận tiêu chuẩn khắt khe của Châu Âu. Chống chai, chống cháy nổ, an toàn tuyệt đối khi sạc nhanh.</p>
+            </div>
+            <div class="category-text-block">
+                <span class="block-num">03</span>
+                <h4>Linh kiện bo mạch</h4>
+                <p>Đầy đủ chân sạc, camera, loa, cáp nguồn và các IC mã độc quyền chuyên sâu cho kỹ thuật viên phần cứng.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TẦNG 4: TESTIMONIAL EDITORIAL - Khối trích dẫn lớn, dứt khoát -->
+    <section class="editorial-testimonial">
+        <span class="quote-mark">“</span>
+        <blockquote class="editorial-quote">
+            Nguồn hàng ở đây rất đều, màn hình iPhone về ráp khách chưa thấy ai quay lại bảo hành. Giá lại mềm nhất vùng.
+        </blockquote>
+        <cite class="editorial-author">— Anh Minh <span>(Chủ cửa hàng sửa chữa tại Hà Nội)</span></cite>
+    </section>
+
+    <!-- TẦNG 5: CONTACT MINIMAL FOOTPRINT - Khối thông tin liên hệ dàn mỏng ngang -->
+    <footer class="editorial-contact-strip">
+        <div class="strip-item">
+            <label>HOTLINE / ZALO</label>
+            <span>0846.623.306</span>
+        </div>
+        <div class="strip-item">
+            <label>ĐỊA CHỈ CỬA HÀNG</label>
+            <span>Số 153, Khóm 3, Phường Hòa Thuận, Tỉnh Vĩnh Long</span>
+        </div>
+        <div class="strip-item">
+            <label>EMAIL HỖ TRỢ</label>
+            <span>thanhduy9693@gmail.com</span>
+        </div>
+    </footer>
+
+</main>
+
+
+
 
 <footer class="main-footer">
     <div class="footer-container">
@@ -75,10 +131,11 @@
             <h3 class="footer-logo-text">PHỤ KIỆN DUY THÀNH</h3>
             <p class="footer-slogan">Chuyên cung cấp linh kiện & phụ kiện điện thoại chính hãng. Đặt chất lượng và uy tín lên hàng đầu.</p>
             <div class="social-links">
-                <a href="#" title="Facebook">FB</a>
-                <a href="#" title="Zalo">ZL</a>
-                <a href="#" title="Instagram">IG</a>
-                <a href="#" title="TikTok">TT</a>
+                <!-- ĐÃ SỬA: Chèn liên kết trang cá nhân của bạn + Mở tab mới khi click -->
+                <a href="http://facebook.com/tkszry" target="_blank" rel="noopener noreferrer" title="Facebook">FB</a>
+                <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" title="Zalo">ZL</a>
+                <a href="https://www.instagram.com/_thnhrj.dt?igsh=eWxtN2J1NXJzdHN6" target="_blank" rel="noopener noreferrer" title="Instagram">IG</a>
+                <a href="https://www.tiktok.com/@dodododo36206?_r=1&_t=ZS-970GPPRVYRe" target="_blank" rel="noopener noreferrer" title="TikTok">TT</a>
             </div>
         </div>
 
@@ -96,8 +153,7 @@
             <ul class="footer-list">
                 <li><span>Hotline</span> <strong>0846.623.306</strong></li>
                 <li><span>Email</span> <a href="mailto:thanhduy9693@gmail.com">thanhduy9693@gmail.com</a></li>
-                <li><span>Địa chỉ</span> <strong>Nhà Trọ 153, Khóm 3, Phường Hòa Thuận, Vĩnh Long</strong></li>
-            </ul>
+                <li><span>Địa chỉ</span> <strong> Số 153, Khóm 3, Phường Hòa Thuận, Vĩnh Long</strong></li>            </ul>
         </div>
     </div>
     
@@ -105,6 +161,7 @@
         <p>© 2026 Designed & Developed by Do Thanh Duy. All rights reserved.</p>
     </div>
 </footer>
+
 
 
 <div id="adminModal" class="modal-admin">

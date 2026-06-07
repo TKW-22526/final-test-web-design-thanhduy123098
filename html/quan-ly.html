@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Sản Phẩm - PhoneParts Studio</title>
+    <title>Quản Lý Sản Phẩm - PHỤ KIỆN DUY THÀNH</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -18,8 +18,9 @@
         </div>
 
         <div class="search-box">
-            <input type="text" placeholder="Bạn cần tìm linh kiện gì?">
-            <button class="btn-search">
+            <input type="text" placeholder="Bạn cần tìm linh kiện gì?(chức năng minh họa)">
+            <!-- THÊM dòng onclick vào nút bấm này -->
+            <button class="btn-search" onclick="alert('Hiện tại không tìm thấy sản phẩm phù hợp!')">
                 Tìm kiếm
             </button>
         </div>
@@ -36,63 +37,68 @@
         </ul>
     </nav>
 
-    <main class="container admin-layout">
-        <h2 style="color: #1e293b; border-bottom: 2px solid #ddd; padding-bottom: 10px;">Bảng Quản Trị Sản Phẩm</h2>
-        
-        <div style="overflow-x: auto;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Hình Ảnh</th>
-                        <th>Tên Sản Phẩm</th>
-                        <th>Giá Bán</th>
-                        <th>Trạng Thái</th>
-                        <th>Hành Động</th>
-                    </tr>
-                </thead>
-                <tbody id="adminTableBody">
-                    </tbody>
-            </table>
+<main class="container admin-layout">
+    <!-- KHỐI FORM THÊM / SỬA SẢN PHẨM (ĐÃ ĐƯA LÊN TRÊN ĐẦU) -->
+    <h2 style="color: #1e293b; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">Thêm / Sửa Sản Phẩm</h2>
+    
+    <form id="adminForm" style="margin-bottom: 50px;"> <!-- Thêm margin-bottom để tạo khoảng cách với bảng bên dưới -->
+        <div class="contact-layout" style="grid-template-columns: 1fr 1fr;">
+            <div>
+                <div class="form-group">
+                    <label for="adTen">Tên sản phẩm (*)</label>
+                    <input type="text" id="adTen" required>
+                </div>
+                <div class="form-group">
+                    <label for="adGia">Giá bán (VNĐ) (*)</label>
+                    <input type="number" id="adGia" required>
+                </div>
+                <div class="form-group">
+                    <label for="adThuongHieu">Thương hiệu</label>
+                    <input type="text" id="adThuongHieu" placeholder="VD: Apple, Samsung...">
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label for="adHinhAnh">Link ảnh đại diện (URL)</label>
+                    <input type="text" id="adHinhAnh" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label for="adMoTa">Mô tả ngắn</label>
+                    <textarea id="adMoTa" style="min-height: 105px;"></textarea>
+                </div>
+            </div>
         </div>
+        
+        <div style="text-align: right; margin-top: 15px;">
+            <button type="button" id="btnCancelEdit" class="btn btn-danger" style="display: none; margin-right: 10px;">Hủy Sửa</button>
+            <button type="submit" id="btnSubmitAdmin" class="btn">Thêm sản phẩm mới</button>
+        </div>
+    </form>
 
-        <h2 style="color: #1e293b; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 40px;">Thêm / Sửa Sản Phẩm</h2>
-        <form id="adminForm">
-            <div class="contact-layout" style="grid-template-columns: 1fr 1fr;">
-                <div>
-                    <div class="form-group">
-                        <label for="adTen">Tên sản phẩm (*)</label>
-                        <input type="text" id="adTen" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="adGia">Giá bán (VNĐ) (*)</label>
-                        <input type="number" id="adGia" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="adThuongHieu">Thương hiệu</label>
-                        <input type="text" id="adThuongHieu" placeholder="VD: Apple, Samsung...">
-                    </div>
-                </div>
+    <!-- KHỐI BẢNG QUẢN TRỊ SẢN PHẨM (MÃ CŨ NGUYÊN BẢN - ĐÃ ĐẨY XUỐNG DƯỚI) -->
+    <h2 style="color: #1e293b; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 20px;">Bảng Quản Trị Sản Phẩm</h2>
+    
+    <div style="overflow-x: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Hình Ảnh</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá Bán</th>
+                    <th>Trạng Thái</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody id="adminTableBody">
+            </tbody>
+        </table>
+    </div>
+</main>
 
-                <div>
-                    <div class="form-group">
-                        <label for="adHinhAnh">Link ảnh đại diện (URL)</label>
-                        <input type="text" id="adHinhAnh" placeholder="https://...">
-                    </div>
-                    <div class="form-group">
-                        <label for="adMoTa">Mô tả ngắn</label>
-                        <textarea id="adMoTa" style="min-height: 105px;"></textarea>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: right; margin-top: 15px;">
-                <button type="button" id="btnCancelEdit" class="btn btn-danger" style="display: none; margin-right: 10px;">Hủy Sửa</button>
-                <button type="submit" id="btnSubmitAdmin" class="btn">Thêm sản phẩm mới</button>
-            </div>
-        </form>
 
-    </main>
+
 
 <footer class="main-footer">
     <div class="footer-container">
@@ -100,10 +106,11 @@
             <h3 class="footer-logo-text">PHỤ KIỆN DUY THÀNH</h3>
             <p class="footer-slogan">Chuyên cung cấp linh kiện & phụ kiện điện thoại chính hãng. Đặt chất lượng và uy tín lên hàng đầu.</p>
             <div class="social-links">
-                <a href="#" title="Facebook">FB</a>
-                <a href="#" title="Zalo">ZL</a>
-                <a href="#" title="Instagram">IG</a>
-                <a href="#" title="TikTok">TT</a>
+                <!-- ĐÃ SỬA: Chèn liên kết trang cá nhân của bạn + Mở tab mới khi click -->
+                <a href="http://facebook.com/tkszry" target="_blank" rel="noopener noreferrer" title="Facebook">FB</a>
+                <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" title="Zalo">ZL</a>
+                <a href="https://www.instagram.com/_thnhrj.dt?igsh=eWxtN2J1NXJzdHN6" target="_blank" rel="noopener noreferrer" title="Instagram">IG</a>
+                <a href="https://www.tiktok.com/@dodododo36206?_r=1&_t=ZS-970GPPRVYRe" target="_blank" rel="noopener noreferrer" title="TikTok">TT</a>
             </div>
         </div>
 
@@ -121,8 +128,7 @@
             <ul class="footer-list">
                 <li><span>Hotline</span> <strong>0846.623.306</strong></li>
                 <li><span>Email</span> <a href="mailto:thanhduy9693@gmail.com">thanhduy9693@gmail.com</a></li>
-                <li><span>Địa chỉ</span> <strong>Nhà Trọ 153, Khóm 3, Phường Hòa Thuận, Vĩnh Long</strong></li>
-            </ul>
+                <li><span>Địa chỉ</span> <strong> Số 153, Khóm 3, Phường Hòa Thuận, Vĩnh Long</strong></li>            </ul>
         </div>
     </div>
     
@@ -130,6 +136,7 @@
         <p>© 2026 Designed & Developed by Do Thanh Duy. All rights reserved.</p>
     </div>
 </footer>
+
 
     <script src="../js/db.js"></script>
     <script src="../js/script.js"></script>

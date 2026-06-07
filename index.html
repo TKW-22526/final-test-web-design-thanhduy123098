@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhoneParts Studio - Chuyên Linh Kiện Điện Thoại</title>
+    <title>PHỤ KIỆN DUY THÀNH - Chuyên Linh Kiện Điện Thoại</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,13 +18,15 @@
         </div>
 
         <div class="search-box">
-            <input type="text" placeholder="Bạn cần tìm linh kiện gì?">
-            <button class="btn-search">
+            <input type="text" placeholder="Bạn cần tìm linh kiện gì?(chức năng minh họa)">
+            <!-- THÊM dòng onclick vào nút bấm này -->
+            <button class="btn-search" onclick="alert('Hiện tại không tìm thấy sản phẩm phù hợp!')">
                 Tìm kiếm
             </button>
         </div>
     </div>
 </header>
+
 
     <nav>
         <div class="container">
@@ -38,9 +40,52 @@
         </div>
     </nav>
 
-    <main class="container">
-        
-        <h2 style="color: #1e3a8a; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; margin-bottom: 25px;">🔥 Sản Phẩm Nổi Bật</h2>
+   <main class="container">
+    
+    <!-- ==========================================================================
+        1. KHỐI BANNER CHÍNH (HERO BANNER GLASS) - ĐÃ BO GÓC & ĐỔI LINK TRANG SẢN PHẨM
+    =========================================================================== -->
+    <section class="hero-banner-section" style="margin-bottom: 45px;">
+        <div class="hero-banner-inside">
+            <h2 class="hero-main-title">LINH KIỆN CHUẨN ZIN <br> BỨT PHÁ TỐC ĐỘ SỬA CHỮA</h2>
+            <p class="hero-desc">Nguồn cung ứng màn hình, pin và linh kiện phần cứng chính hãng hàng đầu cho kỹ thuật viên tại Vĩnh Long. Đầy đủ mã độc quyền, bảo hành uy tín.</p>
+            <a href="html/san-pham.html" class="btn-hero-cta">Khám Phá Kho Hàng ⚡</a>
+
+
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         2. KHỐI DANH MỤC NHANH (QUICK CATEGORIES GRID) - Giúp thợ tìm hàng nhanh
+    =========================================================================== -->
+    <section class="quick-cat-section" style="margin-bottom: 50px;">
+        <h3 class="home-section-title" style="color: #1e3a8a; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">Tìm Linh Kiện Theo Nhóm</h3>
+        <div class="quick-cat-grid">
+            <a href="html/san-pham.html" class="cat-glass-box">
+                <span class="cat-emoji">📱</span>
+                <h4>Màn Hình Bộ</h4>
+            </a>
+            <a href="html/san-pham.html" class="cat-glass-box">
+                <span class="cat-emoji">🔋</span>
+                <h4>Pin Dung Lượng Cao</h4>
+            </a>
+            <a href="html/san-pham.html" class="cat-glass-box">
+                <span class="cat-emoji">⚙️</span>
+                <h4>IC & Cáp Nguồn</h4>
+            </a>
+            <a href="html/san-pham.html" class="cat-glass-box">
+                <span class="cat-emoji">🔌</span>
+                <h4>Củ Cáp Sạc Nhanh</h4>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. KHỐI SẢN PHẨM BÁN CHẠY (Thêm id để nút bấm Banner cuộn mượt xuống đây)
+    =========================================================================== -->
+    <section id="product-hot-section">
+        <h2 style="color: #1e3a8a; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; margin-bottom: 25px;">🔥 Sản Phẩm Bán Chạy Tháng 6</h2>
 
         <div class="product-grid">
             <div class="card">
@@ -97,7 +142,9 @@
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+</main>
+
 
 <footer class="main-footer">
     <div class="footer-container">
@@ -105,10 +152,11 @@
             <h3 class="footer-logo-text">PHỤ KIỆN DUY THÀNH</h3>
             <p class="footer-slogan">Chuyên cung cấp linh kiện & phụ kiện điện thoại chính hãng. Đặt chất lượng và uy tín lên hàng đầu.</p>
             <div class="social-links">
-                <a href="#" title="Facebook">FB</a>
-                <a href="#" title="Zalo">ZL</a>
-                <a href="#" title="Instagram">IG</a>
-                <a href="#" title="TikTok">TT</a>
+                <!-- ĐÃ SỬA: Chèn liên kết trang cá nhân của bạn + Mở tab mới khi click -->
+                <a href="http://facebook.com/tkszry" target="_blank" rel="noopener noreferrer" title="Facebook">FB</a>
+                <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" title="Zalo">ZL</a>
+                <a href="https://www.instagram.com/_thnhrj.dt?igsh=eWxtN2J1NXJzdHN6" target="_blank" rel="noopener noreferrer" title="Instagram">IG</a>
+                <a href="https://www.tiktok.com/@dodododo36206?_r=1&_t=ZS-970GPPRVYRe" target="_blank" rel="noopener noreferrer" title="TikTok">TT</a>
             </div>
         </div>
 
@@ -126,8 +174,7 @@
             <ul class="footer-list">
                 <li><span>Hotline</span> <strong>0846.623.306</strong></li>
                 <li><span>Email</span> <a href="mailto:thanhduy9693@gmail.com">thanhduy9693@gmail.com</a></li>
-                <li><span>Địa chỉ</span> <strong>Nhà Trọ 153, Khóm 3, Phường Hòa Thuận, Vĩnh Long</strong></li>
-            </ul>
+                <li><span>Địa chỉ</span> <strong> Số 153, Khóm 3, Phường Hòa Thuận, Vĩnh Long</strong></li>            </ul>
         </div>
     </div>
     
@@ -135,6 +182,7 @@
         <p>© 2026 Designed & Developed by Do Thanh Duy. All rights reserved.</p>
     </div>
 </footer>
+
 
 <div id="adminModal" class="modal-admin">
 
