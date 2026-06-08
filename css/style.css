@@ -6,12 +6,10 @@
     --price-gradient: linear-gradient(135deg, #F05A28, #EF4444);
 }
 
-/* SỬA TẠI ĐÂY: Tăng kích thước cơ sở lên hẳn 18px để ép toàn trang to lên */
 html, body {
     font-size: 18px !important; 
 }
 
-/* Đảm bảo tất cả các thẻ kế thừa cỡ chữ to một cách đồng bộ */
 * { 
     margin: 0; 
     padding: 0; 
@@ -19,12 +17,10 @@ html, body {
 }
 
 body {
-    /* Áp dụng Be Vietnam Pro làm font chữ chủ đạo */
     font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: #F4F4F5; 
     color: #18181B; 
     
-    /* Điều chỉnh line-height vừa vặn để chữ to không bị dính dòng */
     line-height: 1.5; 
     position: relative;
     overflow-x: hidden;
@@ -71,7 +67,7 @@ body::after {
 
 
 /* ==========================================================================
-   1. HOMEPAGE: BANNER HERO GLASSMOPHISM (ĐÃ SỬA LỖI HOVER & SAFARI)
+   1. HOMEPAGE
 ========================================================================== */
 
 .hero-banner-section {
@@ -89,7 +85,7 @@ body::after {
     border: 1px solid rgba(240, 90, 40, 0.15); 
     position: relative;
     overflow: hidden; 
-    isolation: isolate; /* Ép bo tròn góc chạy mượt, không lỗi tràn viền trên iPhone/Safari */
+    isolation: isolate;
     
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -124,11 +120,10 @@ body::after {
     margin-bottom: 35px;
 }
 
-/* NÚT BẤM KÊU GỌI HÀNH ĐỘNG CÔNG NGHỆ CAO */
 .btn-hero-cta {
     display: inline-block;
     background: linear-gradient(90deg, #F05A28 0%, #EA580C 40%, #7C3AED 100%);
-    color: white !important; /* Ép màu chữ luôn trắng, không bị màu tím mặc định của thẻ a */
+    color: white !important;
     text-decoration: none;
     padding: 14px 34px;
     font-size: 14.5px;
@@ -140,7 +135,6 @@ body::after {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hiệu ứng dải sáng quét laser chéo */
 .btn-hero-cta::before {
     content: '';
     position: absolute;
@@ -155,7 +149,7 @@ body::after {
         rgba(255, 255, 255, 0) 100%
     );
     transform: skewX(-25deg); 
-    transition: left 0.6s ease-in-out; /* Giữ cố định thuộc tính chuyển động tại đây */
+    transition: left 0.6s ease-in-out;
 }
 
 .btn-hero-cta:hover {
@@ -170,7 +164,7 @@ body::after {
 
 
 /* ==========================================================================
-   2. KHỐI DANH MỤC NHANH (QUICK CATEGORIES GRID) - SỬA LỖI BỊ XẾP DỌC
+   2. KHỐI DANH MỤC NHANH
 ========================================================================== */
 
 .quick-cat-section {
@@ -179,14 +173,12 @@ body::after {
     width: 92%;
 }
 
-/* Kích hoạt chế độ lưới chia thành 4 cột nằm ngang bằng nhau */
 .quick-cat-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* Tạo giao diện hộp kính mờ cho từng ô danh mục */
 .cat-glass-box {
     display: flex;
     flex-direction: column;
@@ -197,10 +189,10 @@ body::after {
     background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.85) 100%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(240, 90, 40, 0.15); /* Viền cam nhẹ đồng bộ với banner */
+    border: 1px solid rgba(240, 90, 40, 0.15);
     border-radius: 16px;
     
-    text-decoration: none !important; /* Xóa bỏ hoàn toàn gạch chân màu tím */
+    text-decoration: none !important;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -217,11 +209,10 @@ body::after {
     margin: 0;
     font-size: 16px;
     font-weight: 700;
-    color: #FFFFFF !important; /* Ép chữ tiêu đề chuyển sang màu trắng */
+    color: #FFFFFF !important;
     line-height: 1.4;
 }
 
-/* Hiệu ứng tương tác sinh động khi thợ rê chuột chọn nhóm hàng */
 .cat-glass-box:hover {
     transform: translateY(-5px);
     border-color: rgba(240, 90, 40, 0.45);
@@ -230,16 +221,11 @@ body::after {
 }
 
 .cat-glass-box:hover .cat-emoji {
-    transform: scale(1.15) rotate(5deg); /* Làm icon to lên và nghiêng nhẹ */
+    transform: scale(1.15) rotate(5deg);
 }
 
 
-/* ==========================================================================
-   3. RESPONSIVE (TỰ ĐỘNG CO GIÃN THEO MÀN HÌNH ĐIỆN THOẠI/TABLET)
-========================================================================== */
-
 @media (max-width: 992px) {
-    /* Trên iPad / Máy tính bảng: Tự động gom lại thành lưới 2 hàng x 2 cột */
     .quick-cat-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -247,7 +233,6 @@ body::after {
 }
 
 @media (max-width: 768px) {
-    /* Co nhỏ Banner chính khi xem trên điện thoại */
     .hero-banner-section { 
         width: 95%; 
         padding: 55px 0; 
@@ -258,7 +243,6 @@ body::after {
 }
 
 @media (max-width: 480px) {
-    /* Trên điện thoại dọc nhỏ: Tối ưu kích thước chữ danh mục để không bị tràn */
     .cat-glass-box {
         padding: 20px 11px;
     }
@@ -271,18 +255,12 @@ body::after {
     }
 }
 
-/* ==========================================================================
-   HIỆU ỨNG HIỂN THỊ TRANG MƯỢT MÀ THUẦN CSS (ĐÃ SỬA LỖI TRẮNG FOOTER)
-========================================================================== */
-
-/* Trả lại thuộc tính hiển thị mặc định cho body để không bị lỗi khoảng trắng */
 body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
 
-/* Định nghĩa hiệu ứng mờ dần và lướt nhẹ lên trên */
 @keyframes cssFadeInPage {
     0% {
         opacity: 0;
@@ -294,34 +272,26 @@ body {
     }
 }
 
-/* Áp dụng hiệu ứng riêng cho lớp bọc nội dung trang web */
 .page-wrapper-animate {
     opacity: 0;
     animation: cssFadeInPage 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-
-
-
 /* ==========================================================================
-MÃ NGUỒN HOÀN CHỈNH: CẢ HEADER & NAVIGATION (Kính Mờ Hổ Phách - Logo Siêu Đại)
+HEADER & NAVIGATION 
 ========================================================================== */
 
 :root {
-    /* Dải màu hệ thống chuyển sắc sâu từ Cam sang Tím */
     --chroma-gradient: linear-gradient(90deg, #F05A28 0%, #EA580C 40%, #7C3AED 100%);
 }
 
-/* 1. KHUNG CHỨA TỔNG: Hiệu ứng kính mờ hổ phách trong suốt (Orange Glassmorphism) */
 header, nav {
-    /* Sử dụng màu cam siêu nhạt, trong suốt phối hợp bộ lọc blur cực sâu */
     background: rgba(240, 90, 40, 0.07) !important; 
     backdrop-filter: blur(25px) saturate(150%);
     -webkit-backdrop-filter: blur(25px) saturate(150%);
 }
 
 header { 
-    /* Tăng mạnh padding dọc lên 32px để tạo không gian bề thế cho Logo cỡ đại */
     padding: 32px 0; 
     border-bottom: none;
     position: relative;
@@ -337,35 +307,38 @@ header {
     margin: auto;
 }
 
-/* 2. CỤM LOGO THƯƠNG HIỆU TỰ DO CỠ ĐẠI (Đập tan khối hộp, phóng to tối đa) */
 .logo-box a {
     display: flex; 
     align-items: center; 
-    gap: 18px; /* Khoảng cách rộng rãi giữa hình logo và chữ */
+    gap: 18px; 
     text-decoration: none;
     position: relative;
-    padding: 0;           /* Xóa bỏ hoàn toàn khoảng đệm của hộp cũ */
-    background: none;     /* Loại bỏ hoàn toàn nền trắng của hộp cũ */
+    padding: 0;           
+    background: none;   
     border-radius: 0;
-    border: none;         /* Xóa bỏ đường viền hộp cũ */
-    box-shadow: none;     /* Xóa đổ bóng hộp cũ */
+    border: none;         
+    box-shadow: none;  
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .logo-box img { 
-    height: 80px; /* SIÊU PHÓNG TO LOGO: Tăng từ 64px lên hẳn 80px cực kỳ bề thế */
+    height: 80px; 
     width: auto;
     border-radius: 8px; 
-    /* Đổ bóng trực tiếp theo phôi hình ảnh logo để tạo độ nổi khối mạnh mẽ */
     filter: drop-shadow(0 6px 16px rgba(240, 90, 40, 0.35));
 }
 
 .shop-name {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 34px; /* SIÊU PHÓNG TO CHỮ: Đẩy từ 30px lên hẳn 34px siêu đậm đà */
+    font-size: 34px; 
     font-weight: 900; 
     text-transform: uppercase;
-    /* Giữ chữ xám đen để tương phản tốt trên nền kính sáng, vuốt cam cháy rực rỡ ở đuôi */
     background: linear-gradient(135deg, #223257 50%, #F05A28 100%); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -373,11 +346,21 @@ header {
     letter-spacing: 0.8px;
 }
 
-.logo-box a:hover {
-    transform: translateY(-3px) scale(1.02); /* Hiệu ứng nhấc nhẹ và phóng to khi hover */
+.slogan {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: italic;
+    color: #1e2e52;
+    margin: 0;
+    letter-spacing: 0.3px;
+    opacity: 0.95;
 }
 
-/* 3. THANH TÌM KIẾM: Kính sáng tương phản cao */
+.logo-box a:hover {
+    transform: translateY(-3px) scale(1.02); 
+}
+
 .search-box { 
     flex: 1; 
     max-width: 480px; 
@@ -387,7 +370,7 @@ header {
 .search-box input {
     width: 100%; 
     padding: 14px 20px; 
-    background: rgba(255, 255, 255, 0.85); /* Nền ô nhập trắng kính mờ dày dặn */
+    background: rgba(255, 255, 255, 0.85); 
     border: 1px solid rgba(240, 90, 40, 0.25); 
     border-radius: 10px 0 0 10px; 
     outline: none;
@@ -426,7 +409,6 @@ header {
     opacity: 0.9; 
 }
 
-/* 4. KHỐI GIỎ HÀNG: Bo góc mịn màng tương phản tốt */
 .cart-box a {
     text-decoration: none; 
     font-weight: 700;
@@ -453,13 +435,12 @@ header {
     font-weight: 800;
 }
 
-/* 5. THANH MENU NAV: Gia tăng sắc độ Xám Đen Đậm để nổi bần bật từng nút chữ */
 nav { 
     position: sticky; 
     top: 0; 
     z-index: 999; 
     padding: 2px 0; 
-    border-bottom: 3.5px solid transparent; /* Dải LED lỏng phân cách với phần Main sáng */
+    border-bottom: 3.5px solid transparent; 
     border-image: var(--chroma-gradient) 1;
 }
 
@@ -474,10 +455,9 @@ nav ul {
 nav a {
     display: block; 
     font-size: 16px; 
-    /* TĂNG NỔI BẬT: Ép màu Xanh Đen Charcoal cực đậm (#0F172A) để chữ Nav hiện rõ mồn một */
     color: #0F172A; 
     text-decoration: none; 
-    margin: 0 35px; /* Giữ nguyên khoảng cách xa nhau thoáng đãng theo ý bạn */
+    margin: 0 35px; 
     padding: 16px 0;
     font-weight: 700; 
     position: relative; 
@@ -490,29 +470,19 @@ nav a::after {
     bottom: 0; 
     left: 0;
     width: 0; 
-    height: 4px; /* Thanh LED chạy dưới chân chữ khi di chuột */
+    height: 4px;
     background: var(--chroma-gradient);
     border-radius: 99px;
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 nav a:hover, nav a.active { 
-    color: #F05A28; /* Chuyển màu chữ sang cam rực khi hover định hướng click */
+    color: #F05A28;
 }
 
 nav a:hover::after, nav a.active::after { 
     width: 100%; 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -531,33 +501,27 @@ main { min-height: 600px; padding: 30px 0; }
 
 
 /* ==========================================================================
-   CARD SẢN PHẨM: White Glassmorphism Hoàn Toàn Hòa Quyện Với Background
+   CARD SẢN PHẨM: 
 ========================================================================= */
 
 :root {
-    /* Đảm bảo hệ thống có đủ các biến màu để card hoạt động */
     --chroma-gradient: linear-gradient(90deg, #F05A28 0%, #EA580C 40%, #7C3AED 100%);
     --price-gradient: linear-gradient(135deg, #F05A28 0%, #DC2626 100%);
 }
 
 .product-grid {
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Tăng nhẹ kích thước tối thiểu để card thoáng hơn */
-    gap: 24px; /* Tăng khoảng cách giữa các card để tạo không gian thở cho nền kính */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 24px; 
 }
 
 .card {
-    /* Hạ độ đục xuống 0.45 để card trong suốt, nhìn xuyên thấu dải màu nền phía sau */
     background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)) padding-box,
                 linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1)) border-box;
-    /* Tăng độ mờ thấu kính sâu 12px để lớp kính mịn màng, cao cấp */
     backdrop-filter: blur(12px); 
     -webkit-backdrop-filter: blur(12px);
-    
     border: 1px solid transparent; 
-    /* Đẩy bo góc lên 16px giúp card mềm mại, match hoàn hảo với hình ảnh tổng thể */
     border-radius: 16px; 
-    
     display: flex; 
     flex-direction: column; 
     overflow: hidden; 
@@ -567,56 +531,48 @@ main { min-height: 600px; padding: 30px 0; }
 
 .card:hover {
     transform: translateY(-6px);
-    /* Khi hover: Chỉ nâng nhẹ độ sáng kính lên 0.65 để vẫn giữ hiệu ứng xuyên thấu */
     background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)) padding-box,
-                var(--chroma-gradient) border-box; /* Viền chạy dải màu Chroma mượt mà */
-    box-shadow: 0 12px 30px rgba(240, 90, 40, 0.12); /* Bóng phát sáng mờ màu cam dịu mắt */
+                var(--chroma-gradient) border-box;
+    box-shadow: 0 12px 30px rgba(240, 90, 40, 0.12); 
 }
 
-/* 🛠 ĐÃ SỬA THEO GIẢI PHÁP 1: Ép nền trắng 100% để xóa vết vuông của ảnh gốc */
 .card img { 
-    width: calc(100% - 24px); /* Thu nhỏ chiều rộng lại một chút để tạo khoảng cách đều với viền card */
+    width: calc(100% - 24px);
     height: 190px; 
-    object-fit: contain; /* Giữ nguyên tỉ lệ để ảnh linh kiện không bị mất góc thô cứng */
+    object-fit: contain;
     
-    margin: 12px auto 0 auto; /* Căn đều ảnh lọt lòng vào giữa phần trên của card */
-    padding: 12px; /* Tạo khoảng trống an toàn xung quanh sản phẩm */
+    margin: 12px auto 0 auto;
+    padding: 12px;
     
-    /* ĐỒI MỚI: Màu trắng đặc 100% tiệp hoàn hảo, biến ranh giới vuông của ảnh gốc thành vô hình */
     background: #FFFFFF; 
     
-    /* Bo góc 12px tương thích mượt mà với độ cong 16px của vỏ card ngoài */
     border-radius: 12px; 
     
-    /* Đổ bóng mịn để tách biệt khối ảnh trắng đục ra khỏi lớp nền kính mờ */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     
     transition: all 0.4s ease;
 }
 
-/* Hiệu ứng zoom nhẹ hình ảnh linh kiện khi người dùng hover vào card */
 .card:hover img {
-    background: #FFFFFF; /* Giữ nguyên nền trắng đặc khi hover */
-    transform: scale(1.02); /* Phóng to nhẹ siêu mượt */
+    background: #FFFFFF;
+    transform: scale(1.02); 
 }
 
 .card-body { 
-    padding: 20px 18px; /* Tăng nhẹ đệm text cho thông tin thoáng đãng */
+    padding: 20px 18px;
     display: flex; 
     flex-direction: column; 
     flex-grow: 1; 
 }
 
-/* Tên sản phẩm: Chỉnh phông chữ mảnh, thanh lịch và dễ đọc hơn */
 .card h3 {
     font-size: 15px; 
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 8px;
-    color: #1E293B; /* Xám đen sâu tương phản cực tốt trên nền kính sáng */
+    color: #1E293B;
 }
 
-/* Giá tiền: Đổ dải màu Gradient rực rỡ để đập vào mắt người dùng ngay lập tức */
 .price {
     background: var(--price-gradient);
     -webkit-background-clip: text; 
@@ -626,63 +582,45 @@ main { min-height: 600px; padding: 30px 0; }
     margin-bottom: 15px;
 }
 
-/* NÚT MUA HÀNG ẨN CÔNG NGHỆ (Chỉ hiện khi hover) */
 .card-body .btn {
     margin-top: auto; 
     width: 100%;
     background: var(--chroma-gradient); 
     color: white;
     border: none; 
-    border-radius: 10px; /* Bo góc nút lên 10px đồng bộ với card */
-    padding: 12px 15px; /* Tăng độ dày nút bấm cho đầm tay */
+    border-radius: 10px; 
+    padding: 12px 15px;
     font-size: 14px;
     font-weight: bold; 
     cursor: pointer;
     
-    /* Trạng thái mặc định: Logic ẩn trượt từ dưới lên cực mượt */
     opacity: 0; 
     visibility: hidden; 
     transform: translateY(15px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Kích hoạt hiển thị nút Mua Ngay khi Hover vào card */
 .card:hover .btn {
     opacity: 1; 
     visibility: visible; 
     transform: translateY(0); 
-    box-shadow: 0 4px 15px rgba(240, 90, 40, 0.3); /* Nút phát sáng nhẹ khi hiện hình */
+    box-shadow: 0 4px 15px rgba(240, 90, 40, 0.3);
 }
 
 .card-body .btn:hover {
-    filter: brightness(1.1); /* Tăng độ rực sáng của nút khi con trỏ chuột trỏ thẳng vào nút */
+    filter: brightness(1.1); 
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================
-   BUTTON (Màu Gradient hiện đại)
+   BUTTON
 ========================= */
 .btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 10px 15px;
-    background: #F05A28; /* Cam ấm thương hiệu */
+    background: #F05A28;
     color: white;
     text-decoration: none;
     border: none;
@@ -694,14 +632,14 @@ main { min-height: 600px; padding: 30px 0; }
 }
 
 .btn:active {
-    transform: scale(0.98); /* Hiệu ứng lún nút khi click chân thực */
+    transform: scale(0.98); 
 }
 
 .btn:hover { box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4); }
 
 .btn-search {
     padding: 10px 20px;
-    background: #0B132B; /* Nút tìm kiếm dùng màu Navy để cân bằng */
+    background: #0B132B; 
     color: white;
     border: none;
     border-radius: 0 8px 8px 0;
@@ -732,22 +670,6 @@ main { min-height: 600px; padding: 30px 0; }
 .btn-warning:hover{
     background: linear-gradient(135deg, #d97706, #b45309);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -795,21 +717,8 @@ main { min-height: 600px; padding: 30px 0; }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================
-   FORM (Mềm mại, bắt sáng khi click)
+   FORM
 ========================= */
 form{
     background:white;
@@ -834,7 +743,7 @@ input,
 select,
 textarea{
     width:100%;
-    padding:12px 10px; /* Nhập liệu rộng rãi hơn */
+    padding:12px 10px; 
     border:2px solid #e2e8f0;
     border-radius:8px;
     font-family: inherit;
@@ -848,29 +757,13 @@ textarea:focus {
     outline: none;
     border-color: #3b82f6;
     background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* Sáng xanh khi click */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); 
 }
 
 textarea{
     resize:vertical;
     min-height:120px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ===========================================================================
@@ -882,7 +775,6 @@ textarea{
     gap:30px;
 }
 
-/* Thông tin liên hệ cột trái (dùng chung cho khối) */
 .contact-info {
     background: white;
     padding: 20px;
@@ -900,42 +792,27 @@ textarea{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ===========================================================================
-   TABLE ADMIN (Giữ nguyên lưới kẻ cứng cáp, nhưng màu sắc hài hòa)
+   TABLE ADMIN 
 ============================================================================== */
 table{
     width:100%;
     border-collapse:collapse;
     background:white;
     border-radius: 10px;
-    overflow: hidden; /* Cắt góc bo cho bảng */
+    overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 
 table th,
 table td{
-    /* Giữ lại viền kẻ ô như cũ nhưng dùng màu xám dịu mắt hơn */
     border:1px solid #cbd5e1; 
     padding:12px 10px;
     text-align:center;
-    vertical-align: middle; /* Căn giữa nội dung theo chiều dọc */
+    vertical-align: middle;
 }
 
 table th{
-    /* Vẫn giữ header bảng tối màu như ý bạn muốn */
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color:white;
     text-transform: uppercase;
@@ -943,31 +820,27 @@ table th{
     letter-spacing: 0.5px;
 }
 
-/* SỬA LỖI CỐT LÕI: Định vị chiều rộng cho 3 cột cuối không bao giờ bị bóp nhỏ */
-table th:nth-last-child(3) { width: 140px; } /* Cột Giá bán */
-table th:nth-last-child(2) { width: 130px; } /* Cột Trạng thái */
-table th:nth-last-child(1) { width: 160px; } /* Cột Hành động */
+table th:nth-last-child(3) { width: 140px; }
+table th:nth-last-child(2) { width: 130px; }
+table th:nth-last-child(1) { width: 160px; }
 
-/* Đảm bảo dữ liệu ở các ô td của 3 cột này luôn nằm trên một hàng ngang */
 table td:nth-last-child(3),
 table td:nth-last-child(2) {
-    white-space: nowrap; /* Ép chữ không bao giờ được nhảy dòng */
+    white-space: nowrap;
 }
 
-/* SỬA LỖI NÚT BẤM: Ép 2 nút Sửa và Ẩn/Hiện xếp hàng ngang, cách nhau ra */
 table td:nth-last-child(1) {
     white-space: nowrap;
 }
 
-/* Tìm đến thẻ div bọc quanh 2 nút (hoặc chính ô td chứa nút) để dàn hàng ngang */
 table td button, table td .btn, table td a {
     display: inline-block;
-    margin: 0 4px !important; /* Tạo khoảng cách trống giữa 2 nút trái và phải */
+    margin: 0 4px !important; 
     vertical-align: middle;
 }
 
 table tr:hover {
-    background-color: #f8fafc; /* Hover nhẹ nhàng cho dòng */
+    background-color: #f8fafc;
 }
 
 .admin-image{
@@ -978,14 +851,13 @@ table tr:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Bổ sung class Badge (Nhãn trạng thái) để bảng đẹp hơn */
 .badge {
-    display: inline-block; /* Đổi sang inline-block để padding hoạt động chuẩn */
-    padding: 6px 14px;     /* Nới rộng khoảng đệm cho nhãn thoáng */
+    display: inline-block;
+    padding: 6px 14px; 
     border-radius: 20px;
     font-size: 12px;
     font-weight: bold;
-    white-space: nowrap;   /* Chống nhảy dòng chữ Đang bán */
+    white-space: nowrap; 
 }
 .badge-active {
     background: #dcfce7;
@@ -999,27 +871,13 @@ table tr:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
-FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
+FOOTER
 ========================================================================== */
 
 .main-footer {
     position: relative;
     
-    /* Giữ hệ màu xanh Navy hoàng gia pha lê trong vắt */
     background: linear-gradient(135deg, rgba(14, 42, 107, 0.12) 0%, rgba(20, 50, 120, 0.08) 100%),
                 linear-gradient(45deg, rgba(255,255,255,0.01) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0.01) 75%, transparent 75%, transparent);
     background-size: 100% 100%, 4px 4px; 
@@ -1028,14 +886,12 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     -webkit-backdrop-filter: blur(24px) saturate(180%);
     
     color: #1E293B;            
-    /* SỬA: Bỏ padding đáy ở đây để dải bản quyền dính sát xuống mép cuối cùng của khối kính */
     padding: 50px 0 0 0;       
     margin-top: 50px;    
     overflow: hidden;
     border-top: 1px solid rgba(14, 42, 107, 0.15); 
 }
 
-/* Dải màu chuyển sắc sâu (Chroma Gradient) chạy dọc trên đỉnh Footer */
 .main-footer::before {
     content: '';
     position: absolute;
@@ -1055,10 +911,9 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     max-width: 1200px;
     margin: 0 auto;
     align-items: start;
-    padding-bottom: 35px; /* SỬA: Tăng lại khoảng cách dưới các cột tạo khoảng thoáng với dòng bản quyền */
+    padding-bottom: 35px;
 }
 
-/* Phần Thương hiệu */
 .footer-logo-text {
     background: linear-gradient(135deg, #0F172A 50%, #F05A28 100%);
     background-clip: text;
@@ -1079,7 +934,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     color: #475569;          
 }
 
-/* Nút mạng xã hội */
 .social-links {
     display: flex;
     gap: 12px;
@@ -1110,7 +964,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     box-shadow: 0 8px 20px rgba(240, 90, 40, 0.25); 
 }
 
-/* Tiêu đề các cột */
 .footer-heading {
     color: #0F172A;            
     font-size: 15px;
@@ -1133,7 +986,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     border-radius: 2px;
 }
 
-/* Cấu trúc List thông tin sinh viên */
 .footer-list {
     list-style: none;
     padding: 0;
@@ -1161,7 +1013,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     font-weight: 700;
 }
 
-/* Đường Link thông tin (Email, Hotline...) */
 .footer-list a {
     color: #F05A28;            
     text-decoration: none;
@@ -1175,28 +1026,21 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     color: #7C3AED;            
 }
 
-/* Dải màu Bottom Bar (Bản quyền) */
 .footer-bottom {
-    /* SỬA: Chuyển background về trong suốt hoàn toàn để hòa làm một với tấm kính lớn phía trên */
     background: transparent; 
-    /* SỬA: Xóa bỏ thuộc tính backdrop-filter riêng ở đây vì khối bao ngoài đã có rồi */
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    
     text-align: center;
     padding: 20px 0; 
-    /* Đường viền kẻ ngang cực mảnh tinh tế để chia tách dòng bản quyền */
     border-top: 1px solid rgba(14, 42, 107, 0.08); 
 }
 
 .footer-bottom p {
     margin: 0;
     font-size: 12px;
-    /* SỬA: Làm đậm chữ bản quyền một chút để dễ đọc trên nền kính Navy */
     color: #334155;            
 }
 
-/* Responsive di động */
 @media (max-width: 768px) {
     .main-footer {
         padding-top: 35px;
@@ -1223,23 +1067,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =========================
-   RESPONSIVE cho thiết bị di động
-========================= */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -1260,28 +1087,12 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
-   BỘ LỌC SẢN PHẨM (Trang Sản Phẩm)
+   BỘ LỌC SẢN PHẨM
    ========================================================================== */
 .product-header {
     display: flex;
-    justify-content: space-between; /* Đẩy tiêu đề sang trái, bộ lọc sang phải */
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
     padding-bottom: 15px;
@@ -1316,7 +1127,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
-/* Hiệu ứng khi bấm vào ô chọn */
 .filter-box select:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
@@ -1339,52 +1149,24 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =======================================================
-   POPUP ĐĂNG NHẬP ADMIN (ĐÃ SỬA LỖI LỆCH VỊ TRÍ)
+   POPUP ĐĂNG NHẬP ADMIN 
 ======================================================= */
 
 .modal-admin {
     display: none;
-    position: fixed !important; /* Dùng !important để chặn mọi mã JS hoặc CSS khác ghi đè */
+    position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;  /* Bao phủ chuẩn 100% chiều rộng màn hình */
-    height: 100vh !important; /* Bao phủ chuẩn 100% chiều cao màn hình */
-    background: rgba(15, 23, 42, 0.6) !important; /* Đổi sang màu tối mờ đồng bộ giao diện kính */
-    backdrop-filter: blur(4px); /* Thêm hiệu ứng mờ nhẹ nền phía sau khi hiện popup */
-    
-    /* Kích hoạt Flexbox để ép nội dung vào chính giữa */
+    width: 100vw !important;
+    height: 100vh !important; 
+    background: rgba(15, 23, 42, 0.6) !important; 
+    backdrop-filter: blur(4px);
     display: flex; 
     justify-content: center;
     align-items: center;
-    z-index: 999999 !important; /* Đảm bảo luôn nằm trên cùng các sản phẩm */
+    z-index: 999999 !important; 
 }
-
-/* Thêm quy tắc ẩn mặc định chuẩn bằng CSS */
 .modal-admin[style*="display: none"], 
 .modal-admin:not([style*="display: flex"]) {
     display: none !important;
@@ -1394,10 +1176,9 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     background: #fff;
     padding: 25px;
     width: 350px;
-    border-radius: 12px; /* Bo góc mượt hơn cho đồng bộ */
+    border-radius: 12px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     
-    /* Chống phân rã layout: Đảm bảo hộp thoại luôn cố định kích thước ở trung tâm */
     position: relative; 
     margin: auto; 
 }
@@ -1416,42 +1197,33 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     margin-bottom: 15px;
     border: 1px solid #cbd5e1;
     border-radius: 6px;
-    box-sizing: border-box; /* Đảm bảo padding không làm phình kích thước ô input */
+    box-sizing: border-box; 
 }
 
 .modal-buttons {
     display: flex;
     justify-content: space-between;
-    gap: 10px; /* Tạo khoảng cách nhỏ giữa 2 nút */
+    gap: 10px;
 }
-
-
-
-
-
 
 
 
 
 /* ==========================================================================
-   PAGE: GIỚI THIỆU - PHONG CÁCH TẠP CHÍ & TỐI GIẢN (NÂNG CẤP ĐỘ NỔI BẬT & HOVER EFFECT)
+   PAGE: GIỚI THIỆU
 ========================================================================== */
 
-/* Khung layout chung thoáng đãng */
 .editorial-about-layout {
     max-width: 1050px;
     margin: 80px auto;
     padding: 0 24px;
-    /* Ép màu chữ mặc định toàn trang tối đậm đà để hiện rõ mồn một */
     color: #0F172A; 
     font-size: 16px;
 }
 
-/* 1. Thiết kế khối Hero tiêu đề đỉnh đầu */
 .editorial-hero {
     text-align: center;
     margin-bottom: 70px;
-    /* Thêm tấm kính mờ siêu nhẹ lọt lòng bọc lấy phần tiêu đề để không bị chìm vào nền */
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -1459,12 +1231,10 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     padding: 40px;
     border-radius: 20px;
     
-    /* HIỆU ỨNG: Khai báo hiệu ứng chuyển động mượt mà cho khối */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* HOVER HERO: Khối nhấc nhẹ lên, ánh viền trắng sáng hơn và đổ bóng mịn */
 .editorial-hero:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.35);
@@ -1473,9 +1243,9 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 }
 
 .editorial-tag {
-    font-size: 13px; /* Phóng to */
+    font-size: 13px;
     font-weight: 800;
-    color: #F05A28; /* Màu cam rực đặc trưng */
+    color: #F05A28;
     letter-spacing: 3px;
     text-transform: uppercase;
     display: block;
@@ -1483,17 +1253,17 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 }
 
 .editorial-main-title {
-    font-size: 46px; /* Phóng to tiêu đề thương hiệu cực đại */
+    font-size: 46px; 
     font-weight: 800;
-    color: #020617; /* Đen sâu thẳm */
+    color: #020617; 
     letter-spacing: -1px;
     line-height: 1.1;
     margin-bottom: 24px;
 }
 
 .editorial-lead-text {
-    font-size: 18px; /* Tăng từ 16px lên 18px đọc siêu dễ */
-    color: #334155; /* Đậm màu hơn để không bị mờ */
+    font-size: 18px;
+    color: #334155; 
     max-width: 760px;
     margin: 0 auto 35px auto;
     line-height: 1.6;
@@ -1505,10 +1275,9 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     background: linear-gradient(90deg, #F05A28, #7C3AED);
     margin: 0 auto 35px auto;
     border-radius: 2px;
-    transition: width 0.3s ease; /* Hiệu ứng giãn thanh line */
+    transition: width 0.3s ease;
 }
 
-/* HOVER HERO làm thanh dải màu dài ra tinh tế */
 .editorial-hero:hover .editorial-divider-gradient {
     width: 120px;
 }
@@ -1520,38 +1289,33 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 }
 
 .commit-item {
-    font-size: 14px; /* Tăng cỡ chữ cam kết */
+    font-size: 14px;
     letter-spacing: 1px;
     color: #020617;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* HOVER từng mục cam kết nhỏ tự nhảy nhẹ */
 .commit-item:hover {
     transform: translateY(-2px);
     color: #F05A28;
 }
 
-/* 2. Thiết kế khối nội dung bất đối xứng 2 cột */
 .editorial-grid-content {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
     gap: 50px;
     margin-bottom: 80px;
-    padding: 45px 35px; /* Thêm đệm */
-    /* Phủ lớp kính mờ lỏng tinh khiết giúp đoạn văn tách nền hoàn toàn */
+    padding: 45px 35px; 
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
-    
-    /* HIỆU ỨNG MƯỢT MÀ KHỐI NỘI DUNG */
+
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* HOVER KHỐI NỘI DUNG: Ánh lên sắc cam nhẹ ở viền thấu quang */
 .editorial-grid-content:hover {
     transform: translateY(-4px);
     border-color: rgba(240, 90, 40, 0.2);
@@ -1559,16 +1323,16 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 }
 
 .editorial-question {
-    font-size: 28px; /* Phóng to câu hỏi dẫn dắt thị giác */
+    font-size: 28px; 
     font-weight: 800;
-    color: #020617; /* Đen sâu */
+    color: #020617; 
     line-height: 1.3;
     letter-spacing: -0.5px;
 }
 
 .editorial-paragraph {
-    font-size: 16.5px; /* Tăng kích thước chữ đoạn văn */
-    color: #1E293B; /* Xám đen đậm nét */
+    font-size: 16.5px; 
+    color: #1E293B;
     line-height: 1.8;
     margin-bottom: 18px;
 }
@@ -1578,7 +1342,7 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     font-weight: 700;
 }
 
-/* 3. Khối danh mục sản phẩm số thứ tự lớn */
+
 .editorial-categories-section {
     margin-bottom: 80px;
     padding: 20px;
@@ -1602,7 +1366,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 .category-text-block {
     position: relative;
     padding: 25px 20px;
-    /* Khối kính lọt lòng độc lập cho mỗi danh mục */
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -1612,7 +1375,6 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* HOVER CARD DANH MỤC: Đổi viền cam rực rỡ và đẩy nhẹ khối lên */
 .category-text-block:hover {
     transform: translateY(-6px);
     background: #FFFFFF;
@@ -1621,7 +1383,7 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 }
 
 .block-num {
-    font-size: 14px; /* To hơn */
+    font-size: 14px; 
     font-weight: 800;
     color: #F05A28;
     display: block;
@@ -1630,25 +1392,24 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     transition: transform 0.3s ease;
 }
 
-/* HOVER CARD làm con số nhảy nhẹ từ dưới lên */
 .category-text-block:hover .block-num {
     transform: translateY(-2px);
 }
 
 .category-text-block h4 {
-    font-size: 19px; /* Phóng to tên danh mục */
+    font-size: 19px;
     font-weight: 800;
     color: #020617;
     margin-bottom: 12px;
 }
 
 .category-text-block p {
-    font-size: 15px; /* Phóng to mô tả chi tiết danh mục */
+    font-size: 15px; 
     color: #334155;
     line-height: 1.6;
 }
 
-/* 4. Khối trích dẫn Testimonial kiểu tạp chí nổi bật dứt khoát */
+
 .editorial-testimonial {
     text-align: center;
     max-width: 850px;
@@ -1664,7 +1425,7 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* HOVER KHỐI ĐÁNH GIÁ: Phát sáng ánh tím/cam mờ nhẹ huyền ảo dưới đáy */
+
 .editorial-testimonial:hover {
     transform: translateY(-4px);
     border-color: rgba(124, 58, 237, 0.2);
@@ -1673,8 +1434,8 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 
 .quote-mark {
     font-family: Georgia, serif;
-    font-size: 110px; /* Làm dấu nháy to hơn làm điểm nhấn */
-    color: rgba(240, 90, 40, 0.25); /* Tăng độ đậm màu cam thấu quang */
+    font-size: 110px; 
+    color: rgba(240, 90, 40, 0.25);
     line-height: 1;
     display: block;
     height: 45px;
@@ -1682,23 +1443,22 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     transition: transform 0.4s ease;
 }
 
-/* HOVER làm dấu nháy kép xoay hoặc lắc nhẹ */
 .editorial-testimonial:hover .quote-mark {
     transform: scale(1.1) translateY(-2px);
 }
 
 .editorial-quote {
-    font-size: 24px; /* Đẩy kích thước lời trích lên cỡ lớn tạo chiều sâu */
+    font-size: 24px;
     font-style: italic;
     font-weight: 600;
-    color: #020617; /* Đen đậm đà hiện rõ mồn một */
+    color: #020617; 
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 .editorial-author {
     font-style: normal;
-    font-size: 15px; /* Tăng size tác giả */
+    font-size: 15px;
     font-weight: 700;
     color: #1E293B;
 }
@@ -1708,13 +1468,13 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     color: #475569;
 }
 
-/* 5. Khối thông tin liên hệ dưới đáy trang */
+
 .editorial-contact-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 30px 20px;
-    border-top: 2px solid rgba(0, 0, 0, 0.08); /* Làm đậm đường kẻ gạch ngang phân tách */
+    border-top: 2px solid rgba(0, 0, 0, 0.08);
 }
 
 .strip-item {
@@ -1724,7 +1484,7 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     transition: transform 0.3s ease;
 }
 
-/* Di chuột vào từng mục liên hệ chân trang để tự đẩy nhẹ tạo điểm nhấn */
+
 .strip-item:hover {
     transform: translateX(4px);
 }
@@ -1732,22 +1492,22 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
 .strip-item label {
     font-size: 11px;
     font-weight: 800;
-    color: #475569; /* Đậm hơn */
+    color: #475569;
     letter-spacing: 1px;
 }
 
 .strip-item span {
-    font-size: 15.5px; /* Tăng cỡ chữ liên hệ */
+    font-size: 15.5px;
     font-weight: 700;
     color: #020617;
     transition: color 0.2s ease;
 }
 
 .strip-item:hover span {
-    color: #F05A28; /* Chuyển màu cam rực rỡ khi hover */
+    color: #F05A28;
 }
 
-/* Responsive mượt mà trên Mobile */
+
 @media (max-width: 768px) {
     .editorial-main-title { font-size: 34px; }
     .editorial-lead-text { font-size: 16px; }
@@ -1757,7 +1517,7 @@ FOOTER: Liquid Glass Tone Xanh Navy Trong Suốt Pha Lê (Đồng Bộ Header)
     .editorial-contact-strip { grid-template-columns: 1fr; gap: 25px; }
     .editorial-quote { font-size: 19px; }
     
-    /* Hủy dịch chuyển tịnh tiến trên mobile để tránh giật lag màn hình cảm ứng */
+   
     .editorial-hero:hover, .editorial-grid-content:hover, .category-text-block:hover, .editorial-testimonial:hover {
         transform: none;
     }

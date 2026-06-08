@@ -2,31 +2,23 @@
 //  script.js — Logic xử lý (render, validate...)
 // ============================================================
 
-// Hàm 1: Render danh sách sản phẩm ra trang san-pham.html
-// Thêm tham số thuongHieu với giá trị mặc định là "all"
 function renderDanhSachSanPham(thuongHieu = "all") {
     const productListDiv = document.getElementById("product-list");
     if (!productListDiv) return;
 
-    // Xóa nội dung cũ
     productListDiv.innerHTML = "";
 
-    // Lấy toàn bộ sản phẩm active từ database
     let sanPhamActive = getSanPhamActive();
 
-    // LOGIC LỌC DỮ LIỆU: Nếu người dùng chọn một hãng cụ thể (khác "all")
     if (thuongHieu !== "all") {
-        // Chỉ giữ lại các sản phẩm có thuộc tính thuongHieu trùng khớp
         sanPhamActive = sanPhamActive.filter(sp => sp.thuongHieu === thuongHieu);
     }
 
-    // Nếu hãng đó không có sản phẩm nào
     if (sanPhamActive.length === 0) {
         productListDiv.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 30px; color: #dc2626; font-weight: bold;">Không tìm thấy sản phẩm nào thuộc hãng này.</p>';
         return;
     }
 
-    // Vòng lặp render sản phẩm (Giữ nguyên như cũ của bạn)
     sanPhamActive.forEach(sp => {
         const card = document.createElement("div");
         card.className = "card";
@@ -50,30 +42,23 @@ function renderChiTietSanPham() {
     const detailContent = document.getElementById("detail-content");
     const errorMessage = document.getElementById("error-message");
 
-    // Nếu không ở trang chi tiết thì bỏ qua
     if (!detailContent) return;
 
-    // 1. Lấy ID từ URL (Query String)
     const urlParams = new URLSearchParams(window.location.search);
     const idParam = urlParams.get('id');
 
-    // 2. Kiểm tra nếu không có ID trên URL
     if (!idParam) {
         errorMessage.style.display = "block";
         return;
     }
 
-    // 3. Tìm sản phẩm trong db.js dựa vào ID
     const product = getSanPhamById(idParam);
 
-    // 4. Nếu không tìm thấy sản phẩm (ID sai, hoặc sản phẩm đã bị xóa)
     if (!product || product.trangThai === "hidden") {
         errorMessage.style.display = "block";
         return;
     }
 
-    // 5. Nếu tìm thấy, render HTML chi tiết
-    // Cấu trúc 2 cột: Ảnh bên trái, Thông tin bên phải. Khối mô tả ở dưới.
     detailContent.innerHTML = `
         <div class="detail-container">
             <div class="detail-image">
@@ -109,12 +94,9 @@ function renderChiTietSanPham() {
         </div>
     `;
     
-    // Cập nhật thẻ title của trình duyệt theo tên sản phẩm cho chuyên nghiệp
     document.title = product.ten + " - PhoneParts Studio";
     hienThiGioHang();
 }
-
-// ... (Giữ nguyên các hàm renderDanhSachSanPham và renderChiTietSanPham ở trên) ...
 
 // ============================================================
 // Hàm 3: Xử lý và Validate Form Liên Hệ (trang lien-he.html)
@@ -123,54 +105,44 @@ function xuLyFormLienHe() {
     const contactForm = document.getElementById("contactForm");
     const formMessage = document.getElementById("formMessage");
 
-    // Nếu không ở trang liên hệ thì bỏ qua hàm này
     if (!contactForm) return;
 
     contactForm.addEventListener("submit", function(event) {
-        // Ngăn chặn hành vi tải lại trang mặc định của form
         event.preventDefault();
 
-        // Lấy giá trị người dùng nhập vào
         const hoTen = document.getElementById("hoTen").value.trim();
         const email = document.getElementById("email").value.trim();
         const soDienThoai = document.getElementById("soDienThoai").value.trim();
         const loaiTuVan = document.getElementById("loaiTuVan").value;
         const loiNhan = document.getElementById("loiNhan").value.trim();
 
-        // Đặt mặc định khung thông báo sẽ hiển thị
         formMessage.style.display = "block";
 
-        // 1. Kiểm tra bỏ trống
         if (hoTen === "" || email === "" || soDienThoai === "" || loiNhan === "") {
-            formMessage.style.color = "#dc2626"; // Màu đỏ báo lỗi
+            formMessage.style.color = "#dc2626"; 
             formMessage.innerText = "❌ Vui lòng nhập đầy đủ các trường bắt buộc (*).";
-            return; // Dừng lại không chạy tiếp
+            return; 
         }
 
-        // 2. Kiểm tra định dạng Email (yêu cầu cơ bản: phải có chữ @)
         if (!email.includes("@")) {
             formMessage.style.color = "#dc2626";
             formMessage.innerText = "❌ Email không hợp lệ (phải chứa ký tự @).";
             return;
         }
 
-        // 3. Kiểm tra định dạng Số điện thoại (yêu cầu cơ bản: phải là số)
         if (isNaN(soDienThoai)) {
             formMessage.style.color = "#dc2626";
             formMessage.innerText = "❌ Số điện thoại chỉ được chứa các chữ số.";
             return;
         }
 
-        // Nếu vượt qua tất cả các bài kiểm tra trên -> Hợp lệ
-        formMessage.style.color = "#15803d"; // Màu xanh lá báo thành công
+        formMessage.style.color = "#15803d"; 
         formMessage.innerText = "✅ Gửi liên hệ thành công! Chúng tôi sẽ phản hồi sớm nhất.";
 
-        // Xóa sạch form sau khi gửi thành công
         contactForm.reset();
     });
 }
 
-// ... (Giữ nguyên các Hàm 1, 2, 3 ở trên) ...
 
 // ============================================================
 // Hàm 4: Xử lý Trang Quản Lý Admin (Thêm, Sửa, Xóa mềm)
@@ -179,26 +151,22 @@ function xuLyTrangAdmin() {
     const adminTableBody = document.getElementById("adminTableBody");
     const adminForm = document.getElementById("adminForm");
     
-    // Nếu không ở trang quản lý thì bỏ qua hàm này
     if (!adminTableBody || !adminForm) return;
 
-    let currentEditId = null; // Biến lưu vết xem đang Thêm mới hay Sửa
+    let currentEditId = null;
     const btnSubmit = document.getElementById("btnSubmitAdmin");
     const btnCancel = document.getElementById("btnCancelEdit");
 
-    // --- A. HIỂN THỊ BẢNG SẢN PHẨM ---
     function renderAdminTable() {
         adminTableBody.innerHTML = "";
-        const tatCaSP = getAllSanPham(); // Lấy từ db.js (cả active và hidden)
+        const tatCaSP = getAllSanPham();
 
         tatCaSP.forEach(sp => {
             const tr = document.createElement("tr");
             
-            // Xác định class và text cho nhãn trạng thái
             const badgeClass = sp.trangThai === "active" ? "badge badge-active" : "badge badge-hidden";
             const badgeText = sp.trangThai === "active" ? "Đang bán" : "Tạm ẩn";
 
-            // Tạo các nút hành động (Nếu đang bán thì hiện nút Ẩn, nếu đang ẩn thì hiện nút Khôi phục)
             const actionButtons = `
                 <button class="btn btn-warning" onclick="editSP(${sp.id})" style="margin-bottom: 5px; padding: 5px 10px;">Sửa</button>
                 ${sp.trangThai === 'active' 
@@ -218,11 +186,10 @@ function xuLyTrangAdmin() {
         });
     }
 
-    // --- B. XÓA MỀM VÀ KHÔI PHỤC (Gắn vào global window để gọi từ HTML) ---
     window.deleteSP = function(id) {
         if (confirm("Bạn có chắc muốn tạm ẩn sản phẩm này khỏi cửa hàng?")) {
-            xoaMemSanPham(id); // Gọi hàm trong db.js
-            renderAdminTable(); // Load lại bảng
+            xoaMemSanPham(id);
+            renderAdminTable(); 
         }
     }
 
@@ -231,28 +198,23 @@ function xuLyTrangAdmin() {
         renderAdminTable();
     }
 
-    // --- C. ĐƯA DỮ LIỆU LÊN FORM ĐỂ SỬA ---
     window.editSP = function(id) {
         const sp = getSanPhamById(id);
         if(!sp) return;
 
-        // Đổ dữ liệu vào input
         document.getElementById("adTen").value = sp.ten;
         document.getElementById("adGia").value = sp.gia;
         document.getElementById("adThuongHieu").value = sp.thuongHieu || "";
         document.getElementById("adHinhAnh").value = sp.hinhAnh[0] || "";
         document.getElementById("adMoTa").value = sp.moTa || "";
 
-        // Chuyển trạng thái Form sang chế độ Cập nhật
         currentEditId = id;
         btnSubmit.innerText = "Cập nhật sản phẩm";
         btnCancel.style.display = "inline-block";
         
-        // Cuộn mượt mà xuống khu vực Form
         document.getElementById("adminForm").scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Nút hủy sửa
     btnCancel.addEventListener("click", function() {
         adminForm.reset();
         currentEditId = null;
@@ -260,11 +222,9 @@ function xuLyTrangAdmin() {
         this.style.display = "none";
     });
 
-    // --- D. XỬ LÝ SUBMIT FORM (Thêm mới hoặc Cập nhật) ---
     adminForm.addEventListener("submit", function(e) {
         e.preventDefault();
 
-        // Lấy dữ liệu
         const ten = document.getElementById("adTen").value;
         const gia = parseInt(document.getElementById("adGia").value);
         const thuongHieu = document.getElementById("adThuongHieu").value;
@@ -272,16 +232,13 @@ function xuLyTrangAdmin() {
         const moTa = document.getElementById("adMoTa").value;
 
         if (currentEditId) {
-            // ĐANG SỬA
             capNhatSanPham(currentEditId, { ten, gia, hinhAnh, moTa, thuongHieu });
             alert("Cập nhật thành công!");
             
-            // Trả form về như cũ
             currentEditId = null;
             btnSubmit.innerText = "Thêm sản phẩm mới";
             btnCancel.style.display = "none";
         } else {
-            // ĐANG THÊM MỚI
             themSanPham({
                 ten, gia, hinhAnh, moTa, thuongHieu,
                 loai: "khac", tenLoai: "Mới", trangThai: "active",
@@ -291,22 +248,18 @@ function xuLyTrangAdmin() {
         }
 
         adminForm.reset();
-        renderAdminTable(); // Load lại bảng
+        renderAdminTable();
     });
 
-    // Khởi chạy render bảng lần đầu tiên
     renderAdminTable();
 }
 
-// ============================================================
-// CẬP NHẬT: Sự kiện chạy tự động khi tải trang (Gộp chung tất cả)
-// ============================================================
 window.onload = function() {
     renderDanhSachSanPham();
     renderChiTietSanPham();
     hienThiGioHang();
     xuLyFormLienHe();
-    xuLyTrangAdmin(); // <-- Gọi thêm hàm xử lý trang quản lý
+    xuLyTrangAdmin();
 };
 
 
