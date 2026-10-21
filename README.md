@@ -2,6 +2,8 @@
 
 Đây là thư mục dự án kết thúc môn của sinh viên. Dự án được tổ chức theo cấu trúc rõ ràng nhằm phục vụ quá trình phát triển website, quản lý mã nguồn và nộp sản phẩm cuối kỳ.
 
+### Truy cập và xem trực tiếp sản phẩm đồ án tại: https://tkw-22526.github.io/final-test-web-design-thanhduy123098/index.html
+
 ## 1. Cấu trúc thư mục dự án
 
 ```text
